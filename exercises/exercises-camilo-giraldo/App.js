@@ -1,18 +1,33 @@
+
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import { NavigationContainer } from '@react-navigation/native';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
-import { LinearGradient } from 'expo-linear-gradient';
+
 
 // Import
 import Card01 from './src/cards/Card01';
 
+// Components
+import Home from './src/pages/Home.jsx';
+import ContactUs from './src/pages/ContactUs.jsx';
+import About from './src/pages/About.jsx';
+
 export default function App() {
   return (
-    <LinearGradient
-    colors={['#1A237E', '#DD2C00']}
-    style={styles.container}
-  >
-    <Card01 />
-  </LinearGradient>
+
+
+
+  <NavigationContainer>
+    <Menu.Navigator>
+      <Menu.Screen name='Home' component={Home}/>
+      <Menu.Screen name='ContactUs' component={ContactUs}/>
+      <Menu.Screen name='About' component={About}/>
+
+    </Menu.Navigator>
+
+  </NavigationContainer>
+ 
   );
 }
 
