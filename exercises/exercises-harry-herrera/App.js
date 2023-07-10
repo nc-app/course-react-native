@@ -1,22 +1,24 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, View } from 'react-native';
+
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import { NavigationContainer } from '@react-navigation/native';
+import 'react-native-gesture-handler';
 
 // Components
-import Card01 from './src/cards/Card01.jsx';
+import Home from './src/pages/Home';
+import ContactUs from './src/pages/ContactUs';
+import AboutUs from './src/pages/About';
+
+const Menu = createDrawerNavigator()
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Card01 />
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Menu.Navigator>
+        <Menu.Screen name='Home' component={Home} />
+        <Menu.Screen name='AboutUs' component={AboutUs} />
+        <Menu.Screen name='ContactUs' component={ContactUs} />
+      </Menu.Navigator>
+    </NavigationContainer>
   );
 }
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#ffffff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+
